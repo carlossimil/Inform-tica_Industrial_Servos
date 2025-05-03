@@ -1,0 +1,42 @@
+/*
+
+Reutiliza a montaxe da práctica anterior e parte do código da mesma, para engadir reactividade á comunicación serie.
+Podes prescindir temporalmente do potenciómetro.
+
+O programa debe accionar o servo recollendo exclusivamente ordes do monitor serie, de maneira que: se hai unha orde dispoñible
+no monitor serie, acciona o servo. Se non hai ningunha orde no monitor serie, o servo non debe accionar. Débese situar inicialmente
+o servo na posición 0º, antes de que o controle o monitor serie.
+
+A diferenza da práctica anterior, o servo só pode accionar un máximo de 0.25 veces por segundo.
+
+As ordes que se poden admitir por comunicación serie son: (a) 'esquerda', (b) 'diagonal esquerda', (c) 'centro', 
+(d) 'diagonal dereita', (e) 'dereita', ou ben (f) un número enteiro entre 0 e 180. As ordes textuais deben estar en 
+minúsculas e deben corresponder a un reparto equitativo entre 0 e 180º.
+
+Autor: Carlos Simil
+Fecha: Maio 2025
+
+*/
+
+
+#include <Servo.h>
+
+Servo primerServo;
+
+int pinPot = A5;
+int pinServo = 3;
+
+
+
+void setup() {
+  
+  primerServo.attach(pinServo);   // Conecta o servo
+  primerServo.write(0);           // Posición inicial a 0°
+  Serial.begin(9600);             // Inicio monitor serie
+  
+}
+
+void loop() {
+
+  
+
